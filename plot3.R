@@ -8,7 +8,9 @@ subsetNEI <- NEI[NEI$fips == 24510, ]
 
 yearly_type_totals <- aggregate(Emissions ~ year + type, subsetNEI, sum)
 
-head(yearly_type_totals)
+
+
+png(filename='plot3.png', width = 503, height = 503, bg = 'white')
 
 plot <- ggplot(data = yearly_type_totals
                 ,mapping = aes(year, Emissions, color = type))
@@ -16,3 +18,5 @@ plot <- ggplot(data = yearly_type_totals
 plot <- plot + geom_point() + geom_smooth()
 
 plot
+
+dev.off()

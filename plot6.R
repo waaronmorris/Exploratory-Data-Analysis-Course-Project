@@ -18,6 +18,8 @@ yearly_totals <- aggregate(vehicleData[['Emissions']] ~ vehicleData[['year']] + 
 
 names(yearly_totals) <- c('year','fips','emissions')
 
+png(filename='plot6.png', width = 503, height = 503, bg = 'white')
+
 plot <- ggplot(data = yearly_totals
                ,mapping = aes(year, emissions, color = fips))
 
@@ -25,3 +27,4 @@ plot <- plot + geom_point() + geom_smooth()
 
 plot
 
+dev.off()

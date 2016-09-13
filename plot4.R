@@ -9,5 +9,8 @@ coalData <- NEI[NEI$SCC %in% SCC, ]
 
 yearly_totals <- aggregate(coalData$Emissions ~ coalData$year, coalData, sum)
 
+png(filename='plot4.png', width = 503, height = 503, bg = 'white')
+
 plot(x = yearly_totals$`coalData$year`, y = yearly_totals$`coalData$Emissions`, xlab = "Year", ylab = "PM2.5", type = "l")
 
+dev.off()

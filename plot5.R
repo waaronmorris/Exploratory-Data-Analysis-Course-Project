@@ -16,5 +16,10 @@ vehicleData <- subsetNEI[subsetNEI$SCC %in% SCC, ]
 
 yearly_totals <- aggregate(vehicleData$Emissions ~ vehicleData$year, vehicleData, sum)
 
+
+
+png(filename='plot5.png', width = 503, height = 503, bg = 'white')
+
 plot(x = yearly_totals$`vehicleData$year`, y = log10(yearly_totals$`vehicleData$Emissions`), xlab = "Year", ylab = "PM2.5", type = "l")
 
+dev.off()
